@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="prism.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav ul li{
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a{
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        nav ul li a:hover{
+            background-color: #ccc;
+        }
+        nav ul ul{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f2f2f2;
+            z-index: 2;
+            padding: 0;
+        }
+        nav ul li:hover>ul{
+            display: block;
+           
+        }
+        nav ul ul li{
+            display: block;
+            position: relative;
+            
+        }
+        #text{
+            width: 300px;  
+            height: 100px;  
+            margin: 20px; 
+            padding: 10px; 
+            font-size: 16px;  
+        }
+        #container{
+            width: 810px;
+            align-items: center;
+            margin: auto;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <header>
+
+    </header>
+    <nav style="width: 810px;
+    align-items: center;
+    margin: auto;">
+        <ul>
+            <li><a href="#">Ejercicios 1-5</a>
+                <ul>
+                    <li><a href="#" onclick="ejercicio1()">Ejercicio 1</a></li>
+                    <li><a href="#" onclick="ejercicio2()">Ejercicio 2</a></li>
+                    <li><a href="#" onclick="ejercicio3()">Ejercicio 3</a></li>
+                    <li><a href="#" onclick="ejercicio4()">Ejercicio 4</a></li>
+                    <li><a href="#" onclick="ejercicio5()">Ejercicio 5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Ejercicios 6-10</a>
+                <ul>
+                    <li><a href="#" onclick="ejercicio6()">Ejercicio 6</a></li>
+                    <li><a href="#" onclick="ejercicio7()">Ejercicio 7</a></li>
+                    <li><a href="#" onclick="ejercicio8()">Ejercicio 8</a></li>
+                    <li><a href="#" onclick="ejercicio9()">Ejercicio 9</a></li>
+                    <li><a href="#" onclick="ejercicio10()">Ejercicio 10</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Ejercicios 11-15</a>
+                <ul>
+                    <li><a href="#" onclick="ejercicio11()">Ejercicio 11</a></li>
+                    <li><a href="#" onclick="ejercicio12()">Ejercicio 12</a></li>
+                    <li><a href="#" onclick="ejercicio13()">Ejercicio 13</a></li>
+                    <li><a href="#" onclick="ejercicio14()">Ejercicio 14</a></li>
+                    <li><a href="#" onclick="ejercicio15()">Ejercicio 15</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Ejercicios 16-20</a>
+                <ul>
+                    <li><a href="#" onclick="ejercicio16()">Ejercicio 16</a></li>
+                    <li><a href="#" onclick="ejercicio17()">Ejercicio 17</a></li>
+                    <li><a href="#" onclick="ejercicio18()">Ejercicio 18</a></li>
+                    <li><a href="#" onclick="ejercicio19()">Ejercicio 19</a></li>
+                    <li><a href="#" onclick="ejercicio20()">Ejercicio 20</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Ejercicios 21-25</a>
+                <ul>
+                    <li><a href="#" onclick="ejercicio21()">Ejercicio 21</a></li>
+                    <li><a href="#" onclick="ejercicio22()">Ejercicio 22</a></li>
+                    <li><a href="#" onclick="ejercicio23()">Ejercicio 23</a></li>
+                    <li><a href="#" onclick="ejercicio24()">Ejercicio 24</a></li>
+                    <li><a href="#" onclick="ejercicio25()">Ejercicio 25</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+    </nav>
+    <aside>
+
+    </aside>
+    <body>
+        
+
+        <div id="container">
+            <h1 id="titulo">Titulo</h1>
+            <br>
+            <p id="enunciado" style="font-style: italic;text-align: center;" >...</p>
+            <br>
+            <p id="muestra">Resultado</p>
+            <br>
+            <pre><code class="language-javascript" id="text">Codigo
+            </code></pre>
+        
+        </div>
+        
+    </body>
+    <footer>
+
+    </footer>
+
+    <script>
+        var tit=document.getElementById("titulo");
+        var stat=document.getElementById("enunciado");
+        var res=document.getElementById("muestra");
+        var code=document.getElementById("text");
+    
+    function ejercicio1() {
+    tit.textContent='Ejercicio 1';
+    stat.textContent=' Utiliza la función map() para duplicar cada elemento de un array.';
+    var original = [1, 2, 3, 4, 5];
+    res.textContent='Original: [ '+original+' ]';
+    var duplicados = original.map(function(elemento) {
+        return elemento * 2;
+    });
+    res.innerHTML+= '<br>Duplicados: [' + duplicados + ']';
+    var newcode = '\nfunction ejercicio1() {\n  var original = [1, 2, 3, 4, 5];\n  res.textContent = "Original: [ " + original + " ]";\n  var duplicados = original.map(function(elemento) {\n    return elemento * 2;\n  });\n  res.innerHTML += "<br>Duplicados: [ " + duplicados + " ]";\n}\n';
+
+    code.textContent=newcode;
+    Prism.highlightElement(code);
+    alert(duplicados)
+}
+
+function ejercicio2() {
+    tit.textContent = 'Ejercicio 2';
+    stat.textContent = ' Utiliza la función filter() para obtener los números pares de un array.';
+    
+    var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    res.textContent = 'Números: [ ' + numeros + ' ]';
+    
+    var pares = numeros.filter(function(elemento) {
+        return elemento % 2 === 0;
+    });
+    
+    var newcode = '\nfunction ejercicio2() {\n  var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\n  res.textContent = "Números: [ " + numeros + " ]";\n  var pares = numeros.filter(function(elemento) {\n    return elemento % 2 === 0;\n  });\n  res.innerHTML += "<br>Pares: [ " + pares + " ]";\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    
+    res.innerHTML += '<br>Pares: [ ' + pares + ' ]';
+    alert(pares);
+}
+
+
+function ejercicio3() {
+    tit.textContent = 'Ejercicio 3';
+    stat.textContent = ' Utiliza la función forEach() para imprimir cada elemento de un array.';
+    
+    var array = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Array original: [ ' + array + ' ]';
+    res.innerHTML += '<br>Elementos impresos en la consola.';
+    
+    array.forEach(function(elemento) {
+        alert(elemento);
+    });
+    
+    newcode = '\nfunction ejercicio3() {\n  var array = [1, 2, 3, 4, 5];\n  res.textContent = "Array: [ " + array + " ]";\n  array.forEach(function(elemento) {\n    res.innerHTML += "<br>" + elemento;\n  });\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    
+}
+
+
+function ejercicio4() {
+    tit.textContent = 'Ejercicio 4';
+    stat.textContent = ' Utiliza la función find() para encontrar el primer número mayor que 5 en un array.';
+    
+    var numeros = [2, 4, 6, 8, 10];
+    
+    res.textContent = 'Números: [ ' + numeros + ' ]';
+    
+    var mayorQue5 = numeros.find(function(elemento) {
+        return elemento > 5;
+    });
+    
+    res.innerHTML += '<br>Primer número mayor que 5: ' + mayorQue5;
+    newcode = '\nfunction ejercicio4() {\n  var numeros = [2, 4, 6, 8, 10];\n  res.textContent = "Números: [ " + numeros + " ]";\n  var mayorQue5 = numeros.find(function(elemento) {\n    return elemento > 5;\n  });\n  res.innerHTML += "<br>El primer número mayor a 5 es: " + mayorQue5;\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    alert(mayorQue5);
+}
+
+function ejercicio5() {
+    tit.textContent = 'Ejercicio 5';
+    stat.textContent = ' Utiliza la función push() para agregar un elemento a un array.';
+    
+    var miArreglo = [1, 2, 3];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    miArreglo.push(4);
+    
+    res.innerHTML += '<br>Arreglo después de agregar 4: [ ' + miArreglo + ' ]';
+    newcode = '\nfunction ejercicio5() {\n  var miArreglo = [1, 2, 3];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  miArreglo.push(4);\n  res.innerHTML += "<br>" + miArreglo;\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    alert(miArreglo);
+}
+
+function ejercicio6() {
+    tit.textContent = 'Ejercicio 6';
+    stat.textContent = ' Utiliza la función pop() para eliminar el último elemento de un array.';
+    
+    var miArreglo = [1, 2, 3];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    miArreglo.pop();
+    
+    res.innerHTML += '<br>Arreglo después de eliminar el último elemento: [ ' + miArreglo + ' ]';
+    newcode = '\nfunction ejercicio6() {\n  var miArreglo = [1, 2, 3];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  miArreglo.pop();\n  res.innerHTML += "<br>" + miArreglo;\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    alert(miArreglo);
+}
+
+function ejercicio7() {
+    tit.textContent = 'Ejercicio 7';
+    stat.textContent = ' Utiliza la función sort() para ordenar un array de números.';
+    
+    var numeros = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+    
+    res.textContent = 'Números originales: [ ' + numeros + ' ]';
+    
+    numeros.sort(function(a, b) {
+        return a - b;
+    });
+    
+    res.innerHTML += '<br>Números ordenados: [ ' + numeros + ' ]';
+    newcode = '\nfunction ejercicio7() {\n  var numeros = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];\n  res.textContent = "Números: [ " + numeros + " ]";\n  numeros.sort(function(a, b) {\n    return a - b;\n  });\n  res.innerHTML += "<br>" + numeros;\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    alert(numeros);
+}
+
+function ejercicio8() {
+    tit.textContent = 'Ejercicio 8';
+    stat.textContent = ' Utiliza la función some() para verificar si un array contiene al menos un número par.';
+    
+    var numeros = [1, 3, 5, 7, 9];
+    
+    res.textContent = 'Números: [ ' + numeros + ' ]';
+    
+    var hayPar = numeros.some(function(elemento) {
+        return elemento % 2 === 0;
+    });
+    
+    res.innerHTML += '<br>¿Contiene al menos un número par? ' + (hayPar ? 'Sí' : 'No');
+    newcode = '\nfunction ejercicio8() {\n  var numeros = [1, 3, 5, 7, 9];\n  res.textContent = "Números: [ " + numeros + " ]";\n  var hayPar = numeros.some(function(elemento) {\n    return elemento % 2 === 0;\n  });\n  res.innerHTML += "<br>Hay al menos un número par: " + hayPar;\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+
+    alert(hayPar);
+}
+
+function ejercicio9() {
+    tit.textContent = 'Ejercicio 9';
+    stat.textContent = ' Utiliza la función every() para verificar si todos los elementos de un array son mayores que 10.';
+    
+    var numeros = [11, 12, 13, 14, 15];
+    
+    res.textContent = 'Números: [ ' + numeros + ' ]';
+    
+    var todosMayoresQue10 = numeros.every(function(elemento) {
+        return elemento > 10;
+    });
+    
+    res.innerHTML += '<br>¿Son todos mayores que 10? ' + (todosMayoresQue10 ? 'Sí' : 'No');
+    newcode = '\nfunction ejercicio9() {\n  var numeros = [11, 12, 13, 14, 15];\n  res.textContent = "Números: [ " + numeros + " ]";\n  var todosMayoresQue10 = numeros.every(function(elemento) {\n    return elemento > 10;\n  });\n  res.innerHTML += "<br>Todos los números son mayores que 10: " + todosMayoresQue10;\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    alert(todosMayoresQue10);
+}
+
+function ejercicio10() {
+    tit.textContent = 'Ejercicio 10';
+    stat.textContent = ' Utiliza la función concat() para combinar dos arrays.';
+    
+    var array1 = [1, 2, 3];
+    var array2 = [4, 5, 6];
+    
+    res.textContent = 'Arreglo 1: [ ' + array1 + ' ]';
+    
+    var combinado = array1.concat(array2);
+    
+    res.innerHTML += '<br>Arreglo combinado: [ ' + combinado + ' ]';
+    newcode = '\nfunction ejercicio10() {\n  var array1 = [1, 2, 3];\n  var array2 = [4, 5, 6];\n  var combinado = array1.concat(array2);\n  res.textContent = "Array combinado: [ " + combinado + " ]";\n}\n';
+code.textContent = newcode;
+Prism.highlightElement(code);
+    alert(combinado);
+}
+
+function ejercicio11() {
+    tit.textContent = 'Ejercicio 11';
+    stat.textContent = ' Utiliza la función includes() para verificar si un número está en un array.';
+    
+    var numeros = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Números: [ ' + numeros + ' ]';
+    
+    var contieneTres = numeros.includes(3);
+    
+    res.innerHTML += '<br>¿El arreglo contiene el número 3? ' + (contieneTres ? 'Sí' : 'No');
+    var newcode11 = '\nfunction ejercicio11() {\n  var numeros = [1, 2, 3, 4, 5];\n  res.textContent = "Números: [ " + numeros + " ]";\n  var contieneTres = numeros.includes(3);\n  res.innerHTML += "<br>Contiene el número 3: " + contieneTres;\n}\n';
+code.textContent = newcode11;
+Prism.highlightElement(code);
+    alert(contieneTres);
+    
+}
+
+function ejercicio12() {
+    tit.textContent = 'Ejercicio 12';
+    stat.textContent = ' Utiliza la función join() para unir elementos de un array en una cadena de texto.';
+    
+    var elementos = ['Hola', 'a', 'todos'];
+    
+    res.textContent = 'Elementos: [ ' + elementos + ' ]';
+    
+    var frase = elementos.join(' ');
+    
+    res.innerHTML += '<br>Frase: ' + frase;
+    var newcode12 = '\nfunction ejercicio12() {\n  var elementos = ["Hola", "a", "todos"];\n  res.textContent = "Elementos: [ " + elementos + " ]";\n  var frase = elementos.join(" ");\n  res.innerHTML += "<br>Frase: " + frase;\n}\n';
+code.textContent = newcode12;
+Prism.highlightElement(code);
+    alert(frase);
+}
+
+function ejercicio13() {
+    tit.textContent = 'Ejercicio 13';
+    stat.textContent = ' Utiliza la función reduce() para calcular la suma de los elementos de un array.';
+    
+    var numeros = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Números: [ ' + numeros + ' ]';
+    
+    var suma = numeros.reduce(function(acumulador, elemento) {
+        return acumulador + elemento;
+    }, 0);
+    
+    res.innerHTML += '<br>Suma de los números: ' + suma;
+    var newcode13 = '\nfunction ejercicio13() {\n  var numeros = [1, 2, 3, 4, 5];\n  res.textContent = "Números: [ " + numeros + " ]";\n  var suma = numeros.reduce(function(acumulador, elemento) {\n    return acumulador + elemento;\n  }, 0);\n  res.innerHTML += "<br>Suma: " + suma;\n}\n';
+code.textContent = newcode13;
+Prism.highlightElement(code);
+    alert(suma);
+}
+
+function ejercicio14() {
+    tit.textContent = 'Ejercicio 14';
+    stat.textContent = ' Utiliza la función indexOf() para encontrar el índice de la primera aparición de un elemento en un array.';
+    
+    var nombres = ['Juan', 'María', 'Carlos', 'Luis', 'María'];
+    
+    res.textContent = 'Nombres: [ ' + nombres + ' ]';
+    
+    var indiceMaria = nombres.indexOf('María');
+    
+    res.innerHTML += '<br>Índice de la primera aparición de María: ' + indiceMaria;
+    var newcode14 = '\nfunction ejercicio14() {\n  var nombres = ["Juan", "María", "Carlos", "Luis", "María"];\n  res.textContent = "Nombres: [ " + nombres + " ]";\n  var indiceMaria = nombres.indexOf("María");\n  res.innerHTML += "<br>Índice de María: " + indiceMaria;\n}\n';
+code.textContent = newcode14;
+Prism.highlightElement(code);
+    alert(indiceMaria);
+}
+
+function ejercicio15() {
+    tit.textContent = 'Ejercicio 15';
+    stat.textContent = ' Utiliza la función findIndex() para encontrar el índice del primer elemento mayor que 30 en un array de edades.';
+    
+    var edades = [25, 30, 18, 42, 35];
+    
+    res.textContent = 'Edades: [ ' + edades + ' ]';
+    
+    var indiceMayor30 = edades.findIndex(function(edad) {
+        return edad > 30;
+    });
+    
+    res.innerHTML += '<br>Índice del primer elemento mayor que 30: ' + indiceMayor30;
+    
+var newcode15 = '\nfunction ejercicio15() {\n  var edades = [25, 30, 18, 42, 35];\n  res.textContent = "Edades: [ " + edades + " ]";\n  var indiceMayor30 = edades.findIndex(function(edad) {\n    return edad > 30;\n  });\n  res.innerHTML += "<br>Índice del primer valor mayor a 30: " + indiceMayor30;\n}\n';
+code.textContent = newcode15;
+Prism.highlightElement(code);
+    alert(indiceMayor30);
+}
+
+function ejercicio16() {
+    tit.textContent = 'Ejercicio 16';
+    stat.textContent = ' Utiliza la función fill() para rellenar elementos de un array con un valor específico en un rango dado.';
+    
+    var miArreglo = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    miArreglo.fill(0, 1, 3);
+    
+    res.innerHTML += '<br>Arreglo después de aplicar fill(): [ ' + miArreglo + ' ]';
+    var newcode16 = '\nfunction ejercicio16() {\n  var miArreglo = [1, 2, 3, 4, 5];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  miArreglo.fill(0, 1, 3);\n  res.innerHTML += "<br>" + miArreglo;\n}\n';
+code.textContent = newcode16;
+Prism.highlightElement(code);
+    alert(miArreglo);
+}
+
+function ejercicio17() {
+    tit.textContent = 'Ejercicio 17';
+    stat.textContent = ' Utiliza la función shift() para eliminar el primer elemento de un array y retornarlo.';
+    
+    var miArreglo = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    var primerElemento = miArreglo.shift();
+    
+    res.innerHTML += '<br>Primer elemento eliminado: ' + primerElemento;
+    var newcode17 = '\nfunction ejercicio17() {\n  var miArreglo = [1, 2, 3,4,5];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  var primerElemento = miArreglo.shift();\n  res.innerHTML += "<br>Primer elemento eliminado: " + primerElemento;\n}\n';
+code.textContent = newcode17;
+Prism.highlightElement(code);
+    alert(primerElemento);
+}
+
+function ejercicio18() {
+    tit.textContent = 'Ejercicio 18';
+    stat.textContent = ' Utiliza la función unshift() para agregar un elemento al inicio de un array.';
+    
+    var miArreglo = [2, 3, 4];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    miArreglo.unshift(1);
+    
+    res.innerHTML += '<br>Arreglo después de aplicar unshift(): [ ' + miArreglo + ' ]';
+    var newcode18 = '\nfunction ejercicio18() {\n  var miArreglo = [2, 3, 4];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  miArreglo.unshift(1);\n  res.innerHTML += "<br>" + miArreglo;\n}\n';
+code.textContent = newcode18;
+Prism.highlightElement(code);
+    alert(miArreglo);
+}
+
+function ejercicio19() {
+    tit.textContent = 'Ejercicio 19';
+    stat.textContent = ' Utiliza la función slice() para seleccionar un subconjunto de elementos de un array.';
+    
+    var frutas = ['manzana', 'pera', 'uva', 'fresa', 'naranja'];
+    
+    res.textContent = 'Frutas: [ ' + frutas + ' ]';
+    
+    var selección = frutas.slice(1, 4);
+    
+    res.innerHTML += '<br>Selección de frutas: [ ' + selección + ' ]';
+
+    var newcode19 = '\nfunction ejercicio19() {\n  var frutas = ["manzana", "pera", "uva", "fresa", "naranja"];\n  res.textContent = "Frutas: [ " + frutas + " ]";\n  var selección = frutas.slice(1, 4);\n  res.innerHTML += "<br>Selección: [ " + selección + " ]";\n}\n';
+code.textContent = newcode19;
+Prism.highlightElement(code);
+    alert(selección);
+}
+
+function ejercicio20() {
+    tit.textContent = 'Ejercicio 20';
+    stat.textContent = ' Utiliza la función reverse() para invertir el orden de los elementos de un array.';
+    
+    var numeros = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Números originales: [ ' + numeros + ' ]';
+    
+    numeros.reverse();
+    
+    res.innerHTML += '<br>Números invertidos: [ ' + numeros + ' ]';
+    var newcode20 = '\nfunction ejercicio20() {\n  var numeros = [1, 2, 3, 4, 5];\n  res.textContent = "Números: [ " + numeros + " ]";\n  numeros.reverse();\n  res.innerHTML += "<br>" + numeros;\n}\n';
+code.textContent = newcode20;
+Prism.highlightElement(code);
+    alert(numeros);
+}
+
+
+function ejercicio21() {
+    tit.textContent = 'Ejercicio 21';
+    stat.textContent = ' Utiliza la función splice() para eliminar elementos de un array y, opcionalmente, agregar nuevos elementos en su lugar.';
+    
+    var miArreglo = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    miArreglo.splice(2, 2, 6, 7);
+    
+    res.innerHTML += '<br>Arreglo después de aplicar splice(): [ ' + miArreglo + ' ]';
+    var newcode21 = '\nfunction ejercicio21() {\n  var miArreglo = [1, 2, 3, 4, 5];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  miArreglo.splice(2, 2, 6, 7);\n  res.innerHTML += "<br>" + miArreglo;\n}\n';
+code.textContent = newcode21;
+Prism.highlightElement(code);
+    alert(miArreglo);
+}
+
+function ejercicio22() {
+    tit.textContent = 'Ejercicio 22';
+    stat.textContent = ' Declare un array de nombres.';
+    
+    var nombres = ['Juan', 'María', 'Carlos', 'Luis', 'María'];
+    
+    res.textContent = 'Nombres: [ ' + nombres + ' ]';
+    var newcode22 = '\nfunction ejercicio22() {\n  var nombres = ["Juan", "María", "Carlos", "Luis", "María"];\n  res.textContent = "Nombres: [ " + nombres + " ]";\n  // Hacer algo con el arreglo nombres aquí\n}\n';
+code.textContent = newcode22;
+Prism.highlightElement(code);
+    alert(nombres);
+
+}
+
+function ejercicio23() {
+    tit.textContent = 'Ejercicio 23';
+    stat.textContent = ' Utiliza la función flat() para aplanar un array de arrays.';
+    
+    var miArreglo = [1, [2, 3], 4, [5]];
+    
+    res.textContent = 'Arreglo original: [ ' + miArreglo + ' ]';
+    
+    miArreglo = miArreglo.flat();
+    
+    res.innerHTML += '<br>Arreglo aplanado: [ ' + miArreglo + ' ]';
+    var newcode23 = '\nfunction ejercicio23() {\n  var miArreglo = [1, 2, 3, 4, 5];\n  res.textContent = "Mi Arreglo: [ " + miArreglo + " ]";\n  miArreglo.flat();\n  res.innerHTML += "<br>" + miArreglo;\n}\n';
+code.textContent = newcode23;
+Prism.highlightElement(code);
+    alert(miArreglo);
+}
+
+function ejercicio24() {
+    tit.textContent = 'Ejercicio 24';
+    stat.textContent = ' Utiliza la función Array.isArray() para verificar si un valor es un array.';
+    
+    var valor = [1, 2, 3, 4, 5];
+    
+    res.textContent = 'Valor: [ ' + valor + ' ]';
+    
+    var esArray = Array.isArray(valor);
+    
+    res.innerHTML += '<br>¿El valor es un array? ' + (esArray ? 'Sí' : 'No');
+    var newcode24 = '\nfunction ejercicio24() {\n  var valor = [1, 2, 3, 4, 5];\n  res.textContent = "Valor: " + valor;\n  var esArray = Array.isArray(valor);\n  res.innerHTML += "<br>Es un array: " + esArray;\n}\n';
+code.textContent = newcode24;
+Prism.highlightElement(code);
+    alert(esArray);
+}
+
+function ejercicio25() {
+    tit.textContent = 'Ejercicio 25';
+    stat.textContent = ' Utiliza la función Array.from() para convertir un iterable en un array.';
+    
+    var iterable = 'Hola';
+    
+    res.textContent = 'Iterable: ' + iterable;
+    
+    var arreglo = Array.from(iterable);
+    
+    res.innerHTML += '<br>Arreglo resultante: [ ' + arreglo + ' ]';
+    var newcode25 = '\nfunction ejercicio25() {\n  var iterable = "Hola";\n  res.textContent = "Iterable: " + iterable;\n  var arreglo = Array.from(iterable);\n  res.innerHTML += "<br>Arreglo: [ " + arreglo + " ]";\n}\n';
+code.textContent = newcode25;
+Prism.highlightElement(code);
+    alert(arreglo);
+}
+
+
+/*function ejercicio20() {
+    tit.textContent='Ejercicio 20';
+    stat.textContent='Encuentra el índice del primer elemento que sea mayor que 50 en un arreglo llamado puntajes.';
+
+    var puntajes = [45, 43, 25, 37, 54, 65, 89, 100];
+    res.textContent='Puntajes: [ '+puntajes+' ]';
+    for (let index = 0; index < puntajes.length; index++) {
+        if (puntajes[index] > 50) {
+            res.innerHTML+= '<br>El indice del primer puntaje mayor a 50 es: '+index;
+            break;
+        }
+    }
+
+    var newcode='\nfunction ejercicio20() {\n    var puntajes = [45, 43, 25, 37, 54, 65, 89, 100];\n    res.textContent = "Puntajes: [ " + puntajes + " ]";\n    for (let index = 0; index < puntajes.length; index++) {\n        if (puntajes[index] > 50) {\n            res.innerHTML += "<br>El indice del primer puntaje mayor a 50 es: " + index;\n            break;\n        }\n    }\n}';
+    code.textContent=newcode;
+    Prism.highlightElement(code);
+}*/
+
+    </script>
+    <script src="prism.js"></script>
+</body>
+</html>
